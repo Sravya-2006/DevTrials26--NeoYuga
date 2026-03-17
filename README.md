@@ -1,218 +1,199 @@
 # 🛡️ ShieldShift
+### Parametric Income Protection for E-Commerce Delivery Workers
 
-## 🚨 The Problem
+*"You can't control the rain. But you shouldn't lose your income to it."*
 
-India's 12 million gig delivery workers have no safety net
+## The Problem
 
-A curfew. A flood. A red-alert rain day. Orders stop. Income vanishes. Nothing they can do.
+India has over 12 million gig delivery workers. Most of them wake up every day not knowing if they'll actually earn. Not because they're lazy — but because a sudden curfew, a red-alert rain day, or a local bandh can wipe out an entire day's income in an instant. And there's absolutely nothing they can do about it.
 
-They don't need vehicle insurance. They don't need health cover. They need one thing protection for wages lost when the world around them goes wrong through no fault of their own.
+These workers don't need vehicle insurance. They don't need health cover right now. What they need is something much simpler — protection for the wages they lose when the world around them goes wrong, through no fault of their own. That gap is what ShieldShift was built to fill.
 
+## What We Built
 
-## 💡 What We Built
+ShieldShift is a weekly parametric income-protection platform built exclusively for e-commerce delivery partners working with Amazon and Flipkart. When a verified calamity hits a worker's zone — a flood, a curfew, a pollution emergency — our system detects it, validates it, and pays the worker automatically. No claim form. No phone call. No waiting around for days.
 
-**ShieldShift** is a weekly parametric income-protection platform built exclusively for e-commerce delivery partners (Amazon, Flipkart).
+The thing that makes ShieldShift different from anything else out there is what we call **day-part aware payouts**. Most insurance platforms ask one question: did a disruption happen? We ask a better one — when did it happen, relative to this worker's peak earning hours?
 
-When a verified calamity hits their zone — the system detects it, validates it, and **pays them automatically**. No claim form. No phone call. No waiting.
+A curfew at 7pm costs Ravi ₹900. The exact same curfew at 2pm costs him ₹200. Our AI knows the difference, and our payout reflects that reality. No other platform does this.
 
-### 🔑 Our Unique Edge — Day-Part Aware Payouts
-> Most platforms ask *did a disruption happen?* We ask *when did it happen relative to this worker's peak earning hours?*
+## What We Cover
 
-A curfew at 7pm costs Ravi ₹900. The same curfew at 2pm costs him ₹200. **Our AI knows the difference. Our payout reflects reality.**
+We cover loss of income from two categories of disruption.
 
+On the natural and environmental side, we cover heavy rain and floods (when IMD declares an Orange or Red Alert), cyclones and storms, severe heat waves above 45°C, dense fog advisories that make delivery impossible, and severe air pollution when AQI crosses 400 on the CPCB scale.
 
-## 👤 Persona & Scenario
+On the social and civic side, we cover government-declared curfews and Section 144 orders, local bandhs and strikes, authority-ordered zone or market closures, civil unrest that blocks delivery activity, and platform-level suspensions where Amazon or Flipkart halts deliveries in a zone for more than three hours.
 
-### Ravi — Amazon Flex Partner, Bengaluru
-- **Age:** 26 | **Platform:** Amazon Flex | **Hours:** 10am–10pm
-- **Peak earning window:** 5pm–9pm (dinner surge, highest order density)
-- **Weekly income:** ₹4,500–₹6,000 | **Payment:** UPI (Google Pay)
+We strictly do not cover vehicle damage or repairs, personal accidents, health issues, or anything caused by the worker's own actions. ShieldShift is a focused product — one problem, solved properly.
+
+## Persona & Scenarios
+
+### Meet Ravi
+
+Ravi is 26, works as an Amazon Flex delivery partner in Bengaluru, and puts in 10am to 10pm most days. His real money comes in during the 5pm to 9pm window — the dinner surge, when order density is highest and he can complete back-to-back runs. He earns between ₹4,500 and ₹6,000 a week, paid out to his Google Pay every Friday.
 
 **Scenario A — The Curfew Evening**
-Section 144 is declared at 5pm in Ravi's zone due to a local protest. He cannot step out. His entire peak window — worth ~₹900 — is gone.
 
-*With ShieldShift:* Curfew detected via civic feed → zone match confirmed → active policy verified → income loss calculated against his hourly baseline → **₹850 credited to his UPI in under 90 seconds. He never touched the app.**
+It's a Tuesday. At 5pm, just as Ravi is about to head out for his peak shift, Section 144 is declared in his zone due to a local protest. He can't leave home. His entire peak window — roughly ₹900 worth of earnings — is gone. There's no one to call, no form to fill, no claim to raise.
+
+With ShieldShift, the curfew order is detected through our civic feed the moment it's issued. His zone is matched, his active policy is confirmed, and his income loss is calculated against his personal hourly baseline. Within 90 seconds, ₹850 is credited to his UPI wallet. Ravi never touched the app.
 
 **Scenario B — The Rain Week**
-IMD declares a Red Alert for 3 consecutive days. Orders drop 60%. Ravi earns ₹1,200 instead of his usual ₹4,800 for those days.
 
-*With ShieldShift:* Red Alert fires parametric trigger on Day 1 → AI calculates gap against his earnings baseline → partial-week payout processed → **money in his wallet by Day 2.**
+IMD declares a Red Alert across Ravi's district for three consecutive days. Orders drop by 60%. He earns ₹1,200 for those three days instead of his usual ₹4,800. That's a ₹3,600 shortfall — nearly his entire week's income.
 
+With ShieldShift, the Red Alert fires a parametric trigger on Day 1. The AI calculates the gap against his earnings baseline, applies his coverage ratio, and processes a payout. The money is in his wallet by Day 2, with no action required from him at all.
 
-## 🔄 Application Workflow
+## How It Works
 
-### Phase 1 — Onboarding *(Worker acts once — under 3 minutes)*
+ShieldShift runs across four phases. The worker is only involved in Phase 1 — everything after that is fully automated.
 
-Download PWA  →  Phone + OTP  →  Link UPI (GPay / PhonePe)  →  Select Zone (pin code)  →  Activate Weekly Plan
+**Phase 1 — Onboarding**
 
-Worker selects their risk tier (₹25 / ₹45 / ₹80/week). Every Sunday, they confirm next week's renewal. That's it — they never need to interact again unless they want to.
+The worker downloads the PWA, verifies via Phone + OTP, links their UPI wallet (Google Pay or PhonePe), selects their delivery zone by pin code, and activates their weekly plan. The whole thing takes under three minutes. Every Sunday, they get a notification to confirm the next week's renewal. That's the only recurring action they ever need to take.
 
+**Phase 2 — Continuous AI Monitoring**
 
-### Phase 2 — Continuous AI Monitoring *(24×7, zero human involvement)*
+Three live data streams run 24×7 in the background — our weather feed (IMD + OpenWeatherMap), our AQI feed (CPCB), and our civic events feed (NewsAPI + government sources). These are aggregated into a per-zone risk score that refreshes every 15 minutes. That score feeds into our XGBoost income loss predictor, which then goes through an Isolation Forest fraud check, and finally hits a threshold gate — if predicted income drop is 20% or more, the trigger fires.
 
-Three live data streams feed a unified **Zone Risk Score**, refreshed every 15 minutes:
+```
+[Weather API]  +  [AQI API — CPCB]  +  [Civic Events Feed]
+ Rain, heat,       Pollution data        Curfews, bandh,
+ fog, floods                             zone closures
+       │                  │                    │
+       └──────────────────┴────────────────────┘
+                          │
+                  [Zone Risk Score]
+                 Updated every 15 min
+                          │
+             [XGBoost Income Loss Predictor]
+                          │
+               [Isolation Forest Fraud Check]
+                          │
+            [Threshold Gate: Drop ≥ 20%? → FIRE]
+```
 
+Our four trigger types are:
 
-[Weather API — Rain, heat, fog]  +  [AQI API — CPCB pollution]  +  [Civic Feed — Curfews, bandh]
-                                          │
-                                  [Zone Risk Score]
-                                  Updated every 15 min
-                                          │
-                            [XGBoost Income Loss Predictor]
-                                          │
-                              [Isolation Forest Fraud Check]
-                                          │
-                            [Threshold Gate: Income Drop ≥ 20%?]
-
-
-**Trigger Types (T1–T4):**
-| Code | Event | Data Source |
+| Code | Event | Source |
 |---|---|---|
-| T1 | Rain / flood / storm / heat wave / fog | IMD + OpenWeatherMap (free tier) |
-| T2 | Severe air pollution AQI 400+ | CPCB AQI API (free tier) |
-| T3 | Curfew / bandh / zone closure / unrest | NewsAPI + civic feed (free tier) |
-| T4 | Platform delivery suspension in zone | Amazon / Flipkart API (simulated mock) |
+| T1 | Rain / flood / storm / heat wave / fog | IMD + OpenWeatherMap |
+| T2 | Severe air pollution — AQI 400+ | CPCB AQI API |
+| T3 | Curfew / bandh / zone closure / unrest | NewsAPI + civic feed |
+| T4 | Platform delivery suspension in zone | Amazon / Flipkart API (mock) |
 
+**Phase 3 — Auto Trigger & Claim**
 
-### Phase 3 — Auto Trigger & Claim *(Zero worker action)*
+The moment a trigger clears all checks, a claim is auto-generated with zero input from the worker. A push notification goes out via Firebase FCM to their phone within 5 seconds. They find out their payout is on the way before they've even thought about it.
 
-Trigger fires (T1/T2/T3/T4)
-        │
-        ▼
-Claim auto-generated — no worker input needed
-        │
-        ▼
-Push notification via Firebase FCM → Worker's phone (within 5 seconds)
+```
+[Trigger Activated — T1 / T2 / T3 / T4]
+                │
+                ▼
+   [Claim Auto-Generated — No Worker Action]
+                │
+                ▼
+  [Push Notification → Firebase FCM → Worker]
+          (within 5 seconds of trigger)
+```
 
+**Phase 4 — Instant UPI Payout**
 
-### Phase 4 — Instant UPI Payout *(Under 90 seconds end-to-end)*
+Payout is calculated as Loss × Coverage Ratio. The instruction goes to Razorpay's UPI Payout API, gets credited to the worker's Google Pay or PhonePe wallet, and a confirmation notification is sent — all within 90 seconds of the trigger firing.
 
-Payout = Loss × Coverage Ratio  →  Razorpay UPI Payout API  →  Credited to GPay / PhonePe  →  Confirmation push sent
+```
+[Payout = Loss × Coverage Ratio]
+                │
+                ▼
+     [Razorpay UPI Payout API]
+                │
+                ▼
+  [Credited to GPay / PhonePe wallet]
+                │
+                ▼
+    [Confirmation push notification]
+     ── Total time: under 90 seconds ──
+```
 
+## Weekly Premium Model
 
-## 💰 Weekly Premium Model
+We built ShieldShift on a weekly pricing model because gig workers don't think in months. A ₹500/month premium feels abstract and disconnected from their earnings cycle. ₹25 to ₹80 a week, deducted right after their weekly platform payout, is something they can actually feel and understand.
 
-### Why Weekly?
-Gig workers don't have monthly salaries. A ₹500/month premium feels abstract. **₹25–₹80/week**, deducted after their weekly platform payout, is tangible and fair.
+Premiums aren't flat — they're recalculated every Sunday by our AI based on five factors: the worker's city and pin code zone (flood-prone or curfew-heavy areas carry higher risk), the disruption history in that zone over the past 12 months, the worker's declared peak earning hours, the upcoming week's seasonal and weather outlook, and the worker's tenure on the platform (more history means a more accurate baseline and fairer pricing).
 
-### How Premiums Are Calculated — Dynamic, Not Flat
-
-Every Sunday, the AI recalculates next week's premium for each worker based on:
-
-| Factor | Why It Matters |
-| City & pin code zone | Flood-prone or curfew-heavy zones carry higher risk |
-| Historical disruption frequency | Past 12 months of calamity events in their zone |
-| Worker's declared peak hours | Higher peak earnings = higher potential loss = adjusted coverage |
-| Season & weather forecast | Monsoon weeks priced higher than dry winter weeks |
-| Platform activity history | Longer tenure = more accurate baseline = fairer premium |
-
-**Premium Tiers:**
 | Risk Level | Weekly Premium | Max Weekly Payout |
-| Low (stable zone, dry season) | ₹25 | ₹1,000 |
-| Medium (metro, monsoon) | ₹45 | ₹2,500 |
-| High (flood-prone, curfew history) | ₹80 | ₹4,500 |
-
-Workers see their next week's premium every Sunday before confirming. Full transparency, always.
-
-
-## 🤖 AI/ML Integration Plan
-
-### 1. Dynamic Premium Calculation
-**Model:** XGBoost Regression
-**Inputs:** Zone risk score, disruption history, worker peak hours, seasonal index, platform activity
-**Output:** Weekly premium (₹) + risk score (0–100)
-**Phase 1:** Rule-based calculator with mock training data → Phase 2: Live ML model
-
-### 2. Income Loss Prediction (Persona-Specific)
-**Model:** Linear Regression on worker's historical earnings baseline
-**Key innovation:** Day-part weighting — a worker earning 70% of income between 5–9pm gets a **1.4× payout multiplier** if a trigger fires in that window vs **0.6×** if it fires at noon.
-
-### 3. Intelligent Fraud Detection
-**Model:** Isolation Forest (unsupervised anomaly detection)
-
-Every triggered claim is validated against:
-- **Location check** — worker's last GPS ping matches their declared zone
-- **Activity check** — worker was active on platform within 2 hours of trigger
-- **Duplicate prevention** — one payout per trigger event per worker per zone
-- **Velocity check** — more than 2 payouts in 7 days flags for manual review
-- **Pattern check** — if 90%+ of workers in a zone claim simultaneously → fraud signal
-
-
-## 📱 Platform Choice — Mobile-First PWA
-
-We chose a **Progressive Web App (PWA)** over a native mobile app. Here's why:
-
-| Factor | Our Reasoning |
-| No app download friction | Workers install from a browser link — one tap, done |
-| Low-end device support | Works on budget Android phones with weak internet |
-| WhatsApp onboarding | Workers join via a link shared in delivery partner groups |
-| Single codebase | Web + mobile in one — critical for hackathon speed |
-| Offline support | PWA caches key screens for areas with patchy connectivity |
-
-A native app would take longer to build, require Play Store approval, and create a download barrier. A PWA removes all of that.
-
-
-## 🔗 Integrations
-
-| Service | Provider 
 |---|---|---|
-| Weather & rain alerts | IMD + OpenWeatherMap | 
-| Air quality (AQI) | CPCB AQI API |
-| Civic disruptions | NewsAPI.org |
-| Flood / disaster alerts | NDMA public data | 
-| Delivery platform data | Amazon / Flipkart | 
-| UPI payouts | Razorpay Payouts API | 
-| Worker authentication | Aadhaar eKYC | 
-| Push notifications | Firebase FCM |
-| SMS fallback | MSG91 / Twilio | 
+| Low — stable zone, dry season | ₹25 | ₹1,000 |
+| Medium — metro city, monsoon | ₹45 | ₹2,500 |
+| High — flood-prone, curfew history | ₹80 | ₹4,500 |
 
+Every worker sees their upcoming premium on Sunday before confirming. No surprises.
 
-## 📊 Analytics Dashboard
+## AI/ML Integration
 
-**Worker View (Mobile)**
-- Active policy status + premium paid this week
-- Claim history with payout timeline
-- Zone risk level for the current week
-- Personal earnings baseline tracker
+**Dynamic Premium Calculation** uses an XGBoost regression model trained on zone risk scores, historical disruption data, worker peak hours, seasonal indices, and platform activity. It outputs a weekly premium amount and a risk score between 0 and 100. In Phase 1, this runs as a rule-based calculator with mock training data. Phase 2 transitions to a live model trained on real onboarding data.
 
-**Admin / Insurer View (Web)**
-- Live trigger event map — which zones are under alert right now
-- Claims initiated vs paid (conversion funnel)
-- Fraud flags queue (pending human review)
-- Weekly premium pool vs payout liability
-- City-level risk heatmap
+**Income Loss Prediction** uses linear regression on each worker's personal earnings baseline. The key innovation here is the day-part weighting system — a worker who earns 70% of their income between 5pm and 9pm receives a 1.4× payout multiplier when a trigger fires in that window, versus 0.6× if it fires in the middle of the afternoon. The payout matches the actual loss, not a flat average.
 
+**Fraud Detection** uses an Isolation Forest for unsupervised anomaly detection. Every claim is validated through five checks: a GPS location match between the worker's last known ping and their declared zone, an activity check confirming they were active on platform within 2 hours of the trigger, a duplicate prevention rule (one payout per trigger per worker per zone), a velocity check (more than 2 payouts in 7 days triggers manual review), and a pattern check that flags coordinated fraud if 90%+ of workers in the same zone claim simultaneously.
 
-## 🛠️ Tech Stack
+## Platform Choice — Mobile-First PWA
+
+We chose a Progressive Web App over a native mobile app for clear practical reasons. Delivery workers on budget Android devices don't want to download another app. A PWA installs from a single browser link with one tap, works on low-end hardware with patchy internet, supports WhatsApp-based onboarding (workers share a link in their delivery group chats), and gives us a single codebase for both web and mobile — which is critical when building fast. It also supports offline caching for key screens, so workers can check their policy status even without a strong connection.
+
+A native app would have meant Play Store approval delays, a download barrier, and double the development time. PWA removes all of that friction.
+
+## Integrations
+
+We're keeping Phase 1 lean by using free tiers and mock APIs wherever live data isn't critical yet.
+
+| Service | Provider | Phase 1 Approach |
+|---|---|---|
+| Weather & rain alerts | IMD + OpenWeatherMap | Free tier |
+| Air quality | CPCB AQI API | Free tier |
+| Civic disruptions | NewsAPI.org | Free tier |
+| Flood & disaster alerts | NDMA public data | Mock responses |
+| Platform delivery data | Amazon / Flipkart | Simulated mock API |
+| UPI payouts | Razorpay Payouts API | Sandbox mode |
+| Worker authentication | Aadhaar eKYC | Mock verification |
+| Push notifications | Firebase FCM | Free tier |
+| SMS fallback | MSG91 / Twilio | Free trial |
+
+## Analytics Dashboard
+
+Workers get a clean mobile view showing their active policy status, the premium paid this week, their full claim history with payout timelines, their zone's current risk level, and their personal earnings baseline as the AI sees it.
+
+On the admin side, the insurer dashboard shows a live map of active trigger events across zones, a claims funnel from trigger to payout, a fraud flags queue for manual review, the weekly premium pool versus payout liability, and a city-level risk heatmap across India.
+
+## Tech Stack
 
 | Layer | Technology |
-
-| Frontend | React.js (PWA) + Tailwind CSS |
+|---|---|
+| Frontend | React.js PWA + Tailwind CSS |
 | Backend | Node.js + Express.js |
 | Database | PostgreSQL |
 | ML / AI | Python — XGBoost, scikit-learn, served via FastAPI |
-| Real-time events | Socket.io (live trigger alerts) |
+| Real-time events | Socket.io |
 | Payments | Razorpay Sandbox |
 | Notifications | Firebase FCM |
 | Hosting | Vercel (frontend) + Render (backend) |
 | Version control | GitHub |
 
-
-## 🗓️ Development Plan — 
+## Development Plan — Phase 1 (March 4–20)
 
 | Timeline | Focus | Key Deliverables |
-| Week 1 (Mar 4–10) | Research & Architecture | Persona finalization · System design · DB schema · API contracts |
-| Week 2 (Mar 11–17) | Core Build | Onboarding flow · Premium calculator · Trigger engine (mock) · Basic dashboard |
-| Final Days (Mar 17–20) | Polish & Submit | Fraud rules · Payout sandbox · README · Demo video |
+|---|---|---|
+| Week 1 — Mar 4–10 | Research & Architecture | Persona finalization, system design, DB schema, API contracts |
+| Week 2 — Mar 11–17 | Core Build | Onboarding flow, premium calculator, trigger engine (mock), basic dashboard |
+| Final Days — Mar 17–20 | Polish & Submit | Fraud rules, payout sandbox, README, demo video |
 
----
+## Why ShieldShift
 
-## 🌟 Why ShieldShift
+We didn't try to build everything. We picked one problem — gig workers losing income to calamities they can't control — and we solved it completely. No manual claims. No flat payouts that ignore when the disruption actually happened. No monthly premiums that don't fit how these workers live.
 
-- **Zero-friction claims** — workers never file anything. The system does it all.
-- **Day-part aware AI** — payouts match actual earning loss, not flat amounts
-- **Weekly model** — built around how gig workers actually live and earn
-- **Laser focused** — one problem, one persona, solved completely
-- **Parametric is the future** — global insurtech is moving here. We're already here.
+The day-part aware payout model is something no one else is doing. The zero-friction claim experience is what these workers deserve. And the weekly pricing model is the only one that actually makes sense for this population.
 
-*ShieldShift — Because your income deserves a shield.*
+Parametric insurance is the future of gig worker protection. ShieldShift is already there.
+
+*ShieldShift — Because your income deserves a shield.* 🛡️
