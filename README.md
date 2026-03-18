@@ -180,7 +180,7 @@ On the admin side, the insurer dashboard shows a live map of active trigger even
 | Hosting | Vercel (frontend) + Render (backend) |
 | Version control | GitHub |
 
-## Development Plan — 
+
 
 ## Development Plan
 
