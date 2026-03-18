@@ -131,7 +131,7 @@ Every worker sees their upcoming premium on Sunday before confirming. No surpris
 
 ## AI/ML Integration
 
-**Dynamic Premium Calculation** uses an XGBoost regression model trained on zone risk scores, historical disruption data, worker peak hours, seasonal indices, and platform activity. It outputs a weekly premium amount and a risk score between 0 and 100. In Phase 1, this runs as a rule-based calculator with mock training data. Phase 2 transitions to a live model trained on real onboarding data.
+**Dynamic Premium Calculation** uses an XGBoost regression model trained on zone risk scores, historical disruption data, worker peak hours, seasonal indices, and platform activity. It outputs a weekly premium amount and a risk score between 0 and 100.  this runs as a rule-based calculator with mock training data. Then it transitions to a live model trained on real onboarding data.
 
 **Income Loss Prediction** uses linear regression on each worker's personal earnings baseline. The key innovation here is the day-part weighting system — a worker who earns 70% of their income between 5pm and 9pm receives a 1.4× payout multiplier when a trigger fires in that window, versus 0.6× if it fires in the middle of the afternoon. The payout matches the actual loss, not a flat average.
 
