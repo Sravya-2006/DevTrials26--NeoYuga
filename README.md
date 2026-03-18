@@ -180,13 +180,23 @@ On the admin side, the insurer dashboard shows a live map of active trigger even
 | Hosting | Vercel (frontend) + Render (backend) |
 | Version control | GitHub |
 
-## Development Plan — Phase 1 (March 4–20)
+## Development Plan — 
 
-| Timeline | Focus | Key Deliverables |
-|---|---|---|
-| Week 1 — Mar 4–10 | Research & Architecture | Persona finalization, system design, DB schema, API contracts |
-| Week 2 — Mar 11–17 | Core Build | Onboarding flow, premium calculator, trigger engine (mock), basic dashboard |
-| Final Days — Mar 17–20 | Polish & Submit | Fraud rules, payout sandbox, README, demo video |
+## Development Plan
+
+**Phase 1 — Ideation & Foundation **
+Research, persona finalization, system design, Figma prototype, 
+onboarding flow, basic premium calculator, mock trigger engine, 
+README and demo video.
+
+**Phase 2 — Automation & Protection **
+Full registration and policy management, dynamic ML-based premium 
+calculation, claims management, 3–5 live parametric triggers via 
+mock APIs, zero-touch automated claim flow.
+
+**Phase 3 — Scale & Optimise **
+Advanced fraud detection, simulated instant UPI payouts, intelligent 
+worker and admin dashboard, final 5-minute demo video, and pitch deck.
 
 ## Why ShieldShift
 
