@@ -1,7 +1,6 @@
 # 🛡️ ShieldShift
 ### Parametric Income Protection for E-Commerce Delivery Workers
 
-*"You can't control the rain. But you shouldn't lose your income to it."*
 
 ## The Problem
 
