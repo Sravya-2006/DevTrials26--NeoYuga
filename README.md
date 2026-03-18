@@ -10,7 +10,7 @@ These workers don't need vehicle insurance. They don't need health cover right n
 
 ## What We Built
 
-ShieldShift is a weekly parametric income-protection platform built exclusively for e-commerce delivery partners working with Amazon and Flipkart. When a verified calamity hits a worker's zone — a flood, a curfew, a pollution emergency — our system detects it, validates it, and pays the worker automatically. No claim form. No phone call. No waiting around for days.
+ShieldShift is a weekly parametric income-protection platform built exclusively for e-commerce delivery partners working with E-commerce delivery partners. When a verified calamity hits a worker's zone — a flood, a curfew, a pollution emergency — our system detects it, validates it, and pays the worker automatically. No claim form. No phone call. No waiting around for days.
 
 The thing that makes ShieldShift different from anything else out there is what we call **day-part aware payouts**. Most insurance platforms ask one question: did a disruption happen? We ask a better one — when did it happen, relative to this worker's peak earning hours?
 
