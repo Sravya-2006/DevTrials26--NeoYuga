@@ -194,7 +194,7 @@ Advanced fraud detection, simulated instant UPI payouts, intelligent worker and 
 
 *500 fake workers. Spoofed GPS. Coordinated claims. The Market Crash is exactly the kind of attack ShieldShift was built to survive. Here's how we fight back.*
 
-** 1. How do we spot a fake worker from a genuinely stranded one?**
+ 1. How do we spot a fake worker from a genuinely stranded one?
 
 A real worker leaves a trail. A fake one leaves a pattern.
 
@@ -204,7 +204,7 @@ A fraudster's phone tells a different story. GPS suddenly appears in a zone they
 
 Every claim on ShieldShift runs a **5-point legitimacy check** before a single rupee moves, zone presence history, platform activity recency, account age, earnings baseline variance, and Aadhaar-linked UPI verification. You can spoof a location. You cannot spoof 30 days of delivery history.
 
-** 2. What data catches a coordinated fraud ring?**
+2. What data catches a coordinated fraud ring?
 
 Fraud rings are greedy. And greed creates patterns.
 
@@ -214,7 +214,7 @@ When 500 fraudsters hit the system simultaneously, the data looks completely dif
 
 Our **Isolation Forest anomaly detector** runs continuously across every claim batch. The moment more than 60% of a batch shares 3 or more of these signals simultaneously, time clustering under 90 seconds, GPS radius under 500 metres, baseline variance under 8%, UPI account overlap, or coordinated account creation, the entire batch is frozen instantly. No partial payouts. No exceptions. One ring. Caught. Zero rupees lost.
 
-** 3. How do we flag bad actors without punishing honest workers?**
+3. How do we flag bad actors without punishing honest workers?
 
 This is the hardest problem in fraud detection and the most important one to get right. The answer is **tiered response, not binary blocking.**
 
