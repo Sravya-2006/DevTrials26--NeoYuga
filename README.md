@@ -10,7 +10,7 @@ These workers don't need vehicle insurance. They don't need health cover right n
 
 ## What We Built
 
-ShieldShift is a weekly parametric income-protection platform built exclusively for e-commerce delivery partners working with E-commerce delivery partners. When a verified calamity hits a worker's zone — a flood, a curfew, a pollution emergency — our system detects it, validates it, and pays the worker automatically. No claim form. No phone call. No waiting around for days.
+ShieldShift is a weekly parametric income-protection platform built exclusively for e-commerce delivery partners working with Amazon and Flipkart. When a verified calamity hits a worker's zone — a flood, a curfew, a pollution emergency — our system detects it, validates it, and pays the worker automatically. No claim form. No phone call. No waiting around for days.
 
 The thing that makes ShieldShift different from anything else out there is what we call **day-part aware payouts**. Most insurance platforms ask one question: did a disruption happen? We ask a better one — when did it happen, relative to this worker's peak earning hours?
 
@@ -131,7 +131,7 @@ Every worker sees their upcoming premium on Sunday before confirming. No surpris
 
 ## AI/ML Integration
 
-**Dynamic Premium Calculation** uses an XGBoost regression model trained on zone risk scores, historical disruption data, worker peak hours, seasonal indices, and platform activity. It outputs a weekly premium amount and a risk score between 0 and 100.  this runs as a rule-based calculator with mock training data. Then it transitions to a live model trained on real onboarding data.
+**Dynamic Premium Calculation** uses an XGBoost regression model trained on zone risk scores, historical disruption data, worker peak hours, seasonal indices, and platform activity. It outputs a weekly premium amount and a risk score between 0 and 100. This runs as a rule-based calculator with mock training data first, then transitions to a live model trained on real onboarding data.
 
 **Income Loss Prediction** uses linear regression on each worker's personal earnings baseline. The key innovation here is the day-part weighting system — a worker who earns 70% of their income between 5pm and 9pm receives a 1.4× payout multiplier when a trigger fires in that window, versus 0.6× if it fires in the middle of the afternoon. The payout matches the actual loss, not a flat average.
 
@@ -179,23 +179,59 @@ On the admin side, the insurer dashboard shows a live map of active trigger even
 | Hosting | Vercel (frontend) + Render (backend) |
 | Version control | GitHub |
 
-
-
 ## Development Plan
 
-**Phase 1 — Ideation & Foundation **
-Research, persona finalization, system design, Figma prototype, 
-onboarding flow, basic premium calculator, mock trigger engine, 
+**Phase 1 — Ideation & Foundation**
+Research, persona finalization, system design, Figma prototype,
+onboarding flow, basic premium calculator, mock trigger engine,
 README and demo video.
 
-**Phase 2 — Automation & Protection **
-Full registration and policy management, dynamic ML-based premium 
-calculation, claims management, 3–5 live parametric triggers via 
+**Phase 2 — Automation & Protection**
+Full registration and policy management, dynamic ML-based premium
+calculation, claims management, 3–5 live parametric triggers via
 mock APIs, zero-touch automated claim flow.
 
-**Phase 3 — Scale & Optimise **
-Advanced fraud detection, simulated instant UPI payouts, intelligent 
+**Phase 3 — Scale & Optimise**
+Advanced fraud detection, simulated instant UPI payouts, intelligent
 worker and admin dashboard, final 5-minute demo video, and pitch deck.
+
+## Adversarial Defense & Anti-Spoofing Strategy
+
+*500 fake workers. Spoofed GPS. Coordinated claims. The Market Crash is exactly the kind of attack ShieldShift was built to survive. Here's how we fight back.*
+
+**How do we spot a fake worker from a genuinely stranded one?**
+
+A real worker leaves a trail. A fake one leaves a pattern.
+
+When a calamity hits, a genuine worker's phone tells a consistent story — they've been pinging from their registered zone for at least 6 of the last 8 hours, they completed at least one delivery within 2 hours of the trigger, their hourly earnings baseline matches their historical average within a 15% variance, and their UPI traces back to a verified Aadhaar-linked identity. Everything lines up because everything is real.
+
+A fraudster's phone tells a different story. GPS suddenly appears in a zone they've never delivered in across their last 30 days of activity. Zero platform orders in the 4 hours before the claim. Account created within the last 14 days — suspiciously close to a forecasted calamity. Declared peak hours don't match any historical earning pattern. Registered zone doesn't match claim location by more than 3 pin codes.
+
+Every claim on ShieldShift runs a **5-point legitimacy check** before a single rupee moves — zone presence history, platform activity recency, account age, earnings baseline variance, and Aadhaar-linked UPI verification. You can spoof a location. You cannot spoof 30 days of delivery history.
+
+**What data catches a coordinated fraud ring?**
+
+Fraud rings are greedy. And greed creates patterns.
+
+When 500 real workers get hit by a curfew, claims arrive spread across 25–40 minutes, from locations distributed naturally across the affected zone, with payout amounts varying by 30–40% because every worker has a different earnings baseline. Real disruptions produce messy, human, distributed data.
+
+When 500 fraudsters hit the system simultaneously, the data looks completely different. Claims spike within a 60-second window. GPS coordinates cluster within a 200-metre radius — too many phones in one spot. Payout amounts vary by less than 5% because fabricated baselines are hard to randomise convincingly. Multiple UPI IDs resolve to 2 or 3 parent bank accounts. 80% of the accounts were created within the same 7-day window.
+
+Our **Isolation Forest anomaly detector** runs continuously across every claim batch. The moment more than 60% of a batch shares 3 or more of these signals simultaneously — time clustering under 90 seconds, GPS radius under 500 metres, baseline variance under 8%, UPI account overlap, or coordinated account creation — the entire batch is frozen instantly. No partial payouts. No exceptions. One ring. Caught. Zero rupees lost.
+
+**How do we flag bad actors without punishing honest workers?**
+
+This is the hardest problem in fraud detection — and the most important one to get right. The answer is **tiered response, not binary blocking.**
+
+**Tier 1 — Green light:** All 5 checks pass cleanly. Payout fires in under 90 seconds. Zero friction for honest workers. This is the experience 95% of genuine workers will always have.
+
+**Tier 2 — Soft hold:** 1 or 2 signals look unusual but aren't conclusive. Payout holds for a maximum of 2 hours while the system runs a deeper cross-check — platform activity logs, 30-day zone presence history, and device fingerprint consistency. If it clears, money goes through immediately. Worker gets a transparent notification explaining the short delay. No penalty. No rejection. No permanent record.
+
+**Tier 3 — Human review:** 3 or more fraud signals fire simultaneously. Claim is frozen and escalated with a full auto-generated evidence report — GPS trace, activity log, account history, UPI audit — to a human reviewer. Worker is notified within 5 minutes, told exactly why their claim is under review, given a 4-hour resolution window, and offered a direct helpline. Genuine worker? Paid in full with a ₹10 inconvenience credit. Confirmed fraudster? Permanently blacklisted across all zones with a report filed to the partner platform.
+
+The principle we refuse to compromise on — **a delayed payout for an honest worker is recoverable. A wrongful rejection destroys trust forever.**
+
+ShieldShift doesn't just detect fraud. It does it without turning every genuine worker into a suspect. That's not just good ethics — in a product built on trust, it's the only architecture that actually works.
 
 ## Why ShieldShift
 
